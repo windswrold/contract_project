@@ -17,15 +17,16 @@ async function main() {
   // console.log("lok address ", await lok.getAddress());
 
 
-  const ERC20Demo = await ethers.getContractFactory("PalletERC20Factory");
-
-  const lok = await ERC20Demo.deploy(1000000000000, "my", "MY", {
-    gasLimit: 1000000
-  });
-
-  console.log("lok address ", await lok.getAddress());
+  const PaymentContract = await ethers.getContractFactory("PaymentContract");
+  const contract = await PaymentContract.deploy(deployer.address);
+  console.log("contract address ", await contract.getAddress());
 
 }
+
+// async function verify(address: string, constructorArguments: []) {
+
+//   // await run(`verify:verify`);
+// }
 
 // We recommend this pattern to be able to use async/await everywhere
 // and properly handle errors.

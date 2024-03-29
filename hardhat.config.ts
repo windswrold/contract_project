@@ -21,7 +21,10 @@ const config: HardhatUserConfig = {
     timeout: 500000,
   },
   solidity: "0.8.20",
-  etherscan: etherscan,
+  etherscan: etherscan, 
+  sourcify: {
+    enabled: true
+  }
 };
 
 export default config;
