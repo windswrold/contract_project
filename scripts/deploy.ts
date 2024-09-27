@@ -6,20 +6,20 @@ async function main() {
   console.log("Deploying contracts with the account:", deployer.address);
   console.log("Account balance:", (await deployer.provider.getBalance(deployer)).toString());
 
-  // const FeeDeductionContract = await ethers.getContractFactory("FeeDeductionContract");
-
-  // const lok = await FeeDeductionContract.deploy(deployer.address, {
-
-  //   gasLimit: 1000000
-  // });
-
-
-  // console.log("lok address ", await lok.getAddress());
-
-
-  const PaymentContract = await ethers.getContractFactory("PaymentContract");
-  const contract = await PaymentContract.deploy(deployer.address);
+  const CapybaraNFT = await ethers.getContractFactory("CapybaraNFT");
+  const contract = await CapybaraNFT.deploy(deployer.address, "https://imagery.ccapy.com/images/nft/json/{id}.json",
+    {
+      gasLimit: 3000000
+    }
+  );
   console.log("contract address ", await contract.getAddress());
+
+
+
+
+
+
+  //npx hardhat verify --network mainnet DEPLOYED_CONTRACT_ADDRESS "Constructor argument 1"
 
 }
 
